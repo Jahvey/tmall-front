@@ -140,6 +140,51 @@ img.cateye{
 }
 /*页脚css结束*/
 
+/*轮播css开始*/
+div.categoryWithCarousel{
+	position: relative;
+}
+div.categoryWithCarousel div.headbar{
+	background-color: #DD2727;
+}
+div.categoryWithCarousel div.head{
+	width: 200px;
+	height: 36px;
+	background-color: #C60A0A;
+	line-height: 36px;
+	font-weight: bold;
+	font-size: 16px;
+	color: white;
+	margin-left: 20px;
+	display: inline-block;
+}
+div.categoryWithCarousel div.rightMenu{
+	display: inline-block;
+}
+div.categoryWithCarousel div.rightMenu a{
+	font-size: 16px;
+	color: white;
+}
+div.categoryWithCarousel div.rightMenu span{
+	margin: 0px 20px 0px 20px;
+}
+div.carousel-of-product{
+	height: 510px;
+	width: 1024px;
+	margin: 0px auto;
+}
+img.carouselImage{
+	height: 510px !important;
+}
+div.carouselBackgroundDiv{
+	height: 510px;
+	background-color: #E8E8E8;
+	position: absolute;
+	top: 36px;
+	z-index: -1;
+}
+/*轮播css结束*/
+
 </style>
 
 <nav class="top">
@@ -172,6 +217,36 @@ img.cateye{
 	</div>
 </div>
 <div style="height:50px"></div>
+
+<div class="categoryWithCarousel">
+	<div class="headbar">
+		<div class="head">
+			<span class="glyphicon glyphicon-th-list" style="margin-left: 10px;"></span>
+			<span style="margin-left: 10px;">商品分类</span>
+		</div>
+		<div class="rightMenu">
+			<span><a href="">天猫超市</a></span>
+			<span><a href="">天猫国际</a></span>
+			<span><a href="">平板电视</a></span>
+			<span><a href="">电热水器</a></span>
+		</div>
+	</div>
+	<div data-ride="carousel" class="carousel-of-product carousel slide" id="carousel-of-product">
+		<ol class="carousel-indicators">
+			<li data-slide-to="0" data-target="#carousel-of-product" class="active"></li>
+			<li data-slide-to="1" data target="#carousel-of-product" class=""></li>
+			<li data-slide-to="2" data target="#carousel-of-product" class=""></li>
+			<li data-slide-to="3" data target="#carousel-of-product" class=""></li>
+		</ol>
+		<div role="listbox" class="carousel-inner">
+			<div class="item active"><img src="img/lunbo/1.jpg" class="carousel carouselImage"></div>
+			<div class="item"><img src="img/lunbo/2.jpg" class="carouselImage"></div>
+			<div class="item"><img src="img/lunbo/3.jpg" class="carouselImage"></div>
+			<div class="item"><img src="img/lunbo/4.jpg" class="carouselImage"></div>
+		</div>
+	</div>
+	<div class="carouselBackgroundDiv"></div>
+</div>
 
 <div style="display: block;" class="footer" id="footer">
 	<div class="footer_ensure" id="footer_ensure">
