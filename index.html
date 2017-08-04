@@ -185,6 +185,129 @@ div.carouselBackgroundDiv{
 }
 /*轮播css结束*/
 
+/*隐藏菜单css开始*/
+div.categoryMenu{
+    width: 200px;
+    background-color: #e2e2e3;
+    margin-left: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+div.categoryMenu a{
+    color: #000;
+}
+div.categoryMenu a:hover{
+    color: lightskyblue;
+    text-decoration: none;
+}
+div.productsAsideCategorys{
+    width: 800px;
+    height: 510px;
+    background-color: white;
+    margin-left: 220px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+div.productsAsideCategorys div.row{
+    margin: 20px 80px 0px 80px;
+}
+div.productsAsideCategorys div.row div.seperator{
+    margin-top: 20px;
+    border-bottom-style: dashed;
+    border-bottom-width: 1px;
+    border-bottom-color: #e7e7e7;
+}
+div.productsAsideCategorys a{
+    color: #999;
+    font-size: 14px;
+    margin: 8px;
+}
+div.productsAsideCategorys a:hover{
+    color: #C40000;
+    text-decoration: none;
+}
+div.eachCategory{
+    line-height: 30px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+div.eachCategory span{
+    margin-right: 10px;
+}
+div.eachCategory:hover{
+    background-color: white;
+}
+/*隐藏菜单css结束*/
+
+/*产品css开始*/
+div.homepageCategoryProducts{
+    background-color: #F5F5F5;
+    padding: 50px 10px 50px 10px;
+    margin: 10px auto;
+    max-width: 1013px;
+}
+div.productItem{
+    width: 189px;
+    height: 285px;
+    border: 1px solid white;
+    background-color: white;
+    margin: 8px 4px;
+    float: left;
+    cursor: pointer;
+}
+div.productItem span.productItemDesc{
+    font-size: 12px;
+    color: #666666;
+    display: block;
+    padding: 16px;
+}
+div.productItem span.productPrice{
+    font-size: 16px;
+    color: #FF003A;
+    display: block;
+    padding-left: 16px;
+    margin-top: -10px;
+}
+div.productItem img{
+    width: 187px;
+    height: 190px;
+}
+div.productItem  img:hover{
+    opacity: 0.7;
+    filter: alpha(opacity = 70);
+}
+div.eachHomepageCategoryProducts{
+    margin: 0px 0px 40px 0px;
+}
+a.productItemDescLink{
+    display: inline-block;
+    height: 66px;
+    text-decoration:none;
+}
+span.categoryTitle{
+    font-size: 16px;
+    margin-left: 30px;
+    color: #646464;
+    font-weight: bold;
+}
+div.left-mark{
+    display: inline-block;
+    height: 20px;
+    vertical-align: top;
+    width: 5px;
+    background-color: #19C8A9;
+}
+img.endpng{
+    display: block;
+    width: 82px;
+    margin: 0 auto;
+}
+/*产品css结束*/
+
 </style>
 
 <nav class="top">
@@ -218,9 +341,218 @@ div.carouselBackgroundDiv{
 </div>
 <div style="height:50px"></div>
 
+
+
+
+
+
+
+<script>
+function showCategoryMenu(cid){
+    $("div.categoryMenu[cid="+cid+"]").show();
+}
+ 
+function hideCategoryMenu(cid){
+    $("div.categoryMenu[cid="+cid+"]").hide();
+}
+function showProductsAsideCategorys(cid){
+    $("div.eachCategory[cid="+cid+"]").css("background-color","white");
+    $("div.eachCategory[cid="+cid+"] a").css("color","#87CEFA");
+    $("div.productsAsideCategorys[cid="+cid+"]").show();
+}
+ 
+function hideProductsAsideCategorys(cid){
+    $("div.eachCategory[cid="+cid+"]").css("background-color","#e2e2e3");
+    $("div.eachCategory[cid="+cid+"] a").css("color","#000");
+    $("div.productsAsideCategorys[cid="+cid+"]").hide();
+}
+ 
+$(function(){
+	$("div.head").mouseenter(function(){
+        var cid = $(this).attr("cid");
+        showCategoryMenu(cid);
+    });
+    $("div.head").mouseleave(function(){
+        var cid = $(this).attr("cid");
+        hideCategoryMenu(cid);
+    });
+    $("div.eachCategory").mouseenter(function(){
+        var cid = $(this).attr("cid");
+        showCategoryMenu(cid);
+        showProductsAsideCategorys(cid);
+    });
+    $("div.eachCategory").mouseleave(function(){
+        var cid = $(this).attr("cid");
+        hideProductsAsideCategorys(cid);
+        hideCategoryMenu(cid);
+    });
+    $("div.productsAsideCategorys").mouseenter(function(){
+        var cid = $(this).attr("cid");
+        showCategoryMenu(cid);
+        showProductsAsideCategorys(cid);
+    });
+    $("div.productsAsideCategorys").mouseleave(function(){
+        var cid = $(this).attr("cid");
+        hideProductsAsideCategorys(cid);
+        hideCategoryMenu(cid);
+    });
+});
+</script>
+<div class="categoryWithCarousel">
+	<div style="position: relative">
+		<div class="categoryMenu " cid="83" style="display:none;">
+	        <div class="eachCategory" cid="83">
+	        	<span class="glyphicon glyphicon-link"></span><a href="#nowhere">平板电视</a>
+	        </div>
+	        <div class="eachCategory" cid="82">
+	            <span class="glyphicon glyphicon-link"></span><a href="#nowhere">马桶</a>
+	        </div>
+	        <div class="eachCategory" cid="81">
+	            <span class="glyphicon glyphicon-link"></span><a href="#nowhere">沙发</a>
+	        </div>
+	        <div class="eachCategory" cid="80">
+	            <span class="glyphicon glyphicon-link"></span><a href="#nowhere">电热水器</a>
+	        </div>
+	        <div class="eachCategory" cid="79">
+	            <span class="glyphicon glyphicon-link"></span><a href="#nowhere">平衡车</a>
+	        </div>
+	        <div class="eachCategory" cid="78">
+	            <span class="glyphicon glyphicon-link"></span><a href="#nowhere">扫地机器人</a>
+	        </div>
+	        <div class="eachCategory" cid="77">
+	            <span class="glyphicon glyphicon-link"></span><a href="#nowhere">原汁机</a>
+	        </div>
+	        <div class="eachCategory" cid="76">
+	            <span class="glyphicon glyphicon-link"></span><a href="#nowhere">冰箱</a>
+	        </div>
+	        <div class="eachCategory" cid="75">
+	            <span class="glyphicon glyphicon-link"></span><a href="#nowhere">空调</a>
+	        </div>
+	        <div class="eachCategory" cid="74">
+	            <span class="glyphicon glyphicon-link"></span><a href="#nowhere">女表</a>
+	        </div>
+	        <div class="eachCategory" cid="73">
+	            <span class="glyphicon glyphicon-link"></span><a href="#nowhere">男表</a>
+	        </div>
+	        <div class="eachCategory" cid="72">
+	            <span class="glyphicon glyphicon-link"></span><a href="#nowhere">男士手拿包</a>
+	        </div>
+	        <div class="eachCategory" cid="71">
+	            <span class="glyphicon glyphicon-link"></span><a href="#nowhere">男士西服</a>
+	        </div>
+	        <div class="eachCategory" cid="69">
+	            <span class="glyphicon glyphicon-link"></span><a href="#nowhere">时尚男鞋</a>
+	        </div>
+	        <div class="eachCategory" cid="68">
+	            <span class="glyphicon glyphicon-link"></span><a href="#nowhere">品牌女装</a>
+	        </div>
+	        <div class="eachCategory" cid="64">
+	            <span class="glyphicon glyphicon-link"></span><a href="#nowhere">太阳镜</a>
+	        </div>
+	        <div class="eachCategory" cid="60">
+	            <span class="glyphicon glyphicon-link"></span><a href="#nowhere">安全座椅</a>
+	        </div>
+		</div>
+	</div>
+	<div style="position: relative;left: 0;top: 0;">
+		<script>
+		$(function(){
+		    $("div.productsAsideCategorys div.row a").each(function(){
+		        var v = Math.round(Math.random() *6);
+		        if(v == 1)
+		            $(this).css("color","#87CEFA");
+		    });
+		});
+		</script>
+		<div class="productsAsideCategorys" cid="83" style="display:none;">
+		    <div class="row ">
+                <a href="#nowhere">大屏影院</a>
+                <a href="#nowhere">周末</a>
+                <a href="#nowhere">新品特惠</a>
+                <a href="#nowhere">32吋电视机</a>
+                <a href="#nowhere">智能网络</a>
+		        <div class="seperator"></div>
+		    </div>        
+		    <div class="row ">
+                <a href="#nowhere">USB高清解</a>
+                <a href="#nowhere">芒果TV在线</a>
+                <a href="#nowhere">抢购价</a>
+                <a href="#nowhere">USB解码</a>
+                <a href="#nowhere">32英吋</a>
+                <a href="#nowhere">10核</a>
+                <a href="#nowhere">TCL品牌日</a>
+		        <div class="seperator"></div>
+		    </div>        
+		    <div class="row ">
+                <a href="#nowhere">不要赠品</a>
+                <a href="#nowhere">新品上市</a>
+                <a href="#nowhere">4K硬屏</a>
+                <a href="#nowhere">领100元券</a>
+                <a href="#nowhere" style="color: rgb(135, 206, 250);">智能高清</a>
+                <a href="#nowhere">8月，酷暑</a>
+                <a href="#nowhere" style="color: rgb(135, 206, 250);">8月大促</a>
+                <a href="#nowhere">天猫定制</a>
+		        <div class="seperator"></div>
+		    </div>        
+		    <div class="row ">
+                <a href="#nowhere">智能操作系统</a>
+                <a href="#nowhere">金色外观</a>
+                <a href="#nowhere">三星屏幕</a>
+                <a href="#nowhere">客厅爆款</a>
+                <a href="#nowhere">八核配置</a>
+                <a href="#nowhere">限时特惠</a>
+		        <div class="seperator"></div>
+		    </div>        
+		    <div class="row ">
+                <a href="#nowhere">限时特惠</a>
+                <a href="#nowhere">热销爆款</a>
+                <a href="#nowhere">4K全高清</a>
+                <a href="#nowhere" style="color: rgb(135, 206, 250);">六核智能</a>
+                <a href="#nowhere">14核4K</a>
+                <a href="#nowhere">YUNOS</a>
+                <a href="#nowhere" style="color: rgb(135, 206, 250);">YUNOS</a>
+                <a href="#nowhere">64位处理器</a>
+		        <div class="seperator"></div>
+		    </div>        
+		    <div class="row ">
+                <a href="#nowhere">YUNOS</a>
+                <a href="#nowhere">微信电视</a>
+                <a href="#nowhere">4k超清</a>
+                <a href="#nowhere">64位真4K</a>
+                <a href="#nowhere">10核机芯</a>
+                <a href="#nowhere">V字黑釉底座</a>
+                <a href="#nowhere">4K超清</a>
+		        <div class="seperator"></div>
+		    </div>        
+		    <div class="row ">
+                <a href="#nowhere">64位14核</a>
+                <a href="#nowhere">海量影视</a>
+                <a href="#nowhere">人气爆款</a>
+                <a href="#nowhere">限时特惠</a>
+                <a href="#nowhere">真4K屏</a>
+                <a href="#nowhere">65吋巨屏</a>
+                <a href="#nowhere" style="color: rgb(135, 206, 250);">4K超清视界</a>
+                <a href="#nowhere">限时特惠</a>
+		        <div class="seperator"></div>
+		    </div>        
+		    <div class="row ">
+                <a href="#nowhere">55寸旗舰</a>
+                <a href="#nowhere">4K机皇</a>
+                <a href="#nowhere">曲面机皇</a>
+                <a href="#nowhere" style="color: rgb(135, 206, 250);">轻薄4K</a>
+		        <div class="seperator"></div>
+		    </div>        
+		</div>            
+	</div>    
+    <div style="height:510"></div>
+</div>
+
+
+
+
 <div class="categoryWithCarousel">
 	<div class="headbar">
-		<div class="head">
+		<div class="head" cid="83">
 			<span class="glyphicon glyphicon-th-list" style="margin-left: 10px;"></span>
 			<span style="margin-left: 10px;">商品分类</span>
 		</div>
@@ -247,6 +579,138 @@ div.carouselBackgroundDiv{
 	</div>
 	<div class="carouselBackgroundDiv"></div>
 </div>
+
+<div class="homepageCategoryProducts">
+        <div class="eachHomepageCategoryProducts">
+            <div class="left-mark"></div>
+            <span class="categoryTitle">太阳镜</span>
+            <br>
+                    <div class="productItem">
+                        <a href="#nowhere"><img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/9543.jpg"></a>
+                        <a href="#nowhere" class="productItemDescLink">
+                            <span class="productItemDesc">[热销]
+                            好先生同款墨镜孙红雷偏光男士太阳镜韩明星
+                            </span>
+                        </a>
+                        <span class="productPrice">
+                            97.50
+                        </span>
+                    </div>
+                    <div class="productItem">
+                        <a href="#nowhere"><img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/9532.jpg"></a>
+                        <a href="#nowhere" class="productItemDescLink">
+                            <span class="productItemDesc">[热销]
+                            陌森太阳眼镜男女2016偏光定制驾驶近视
+                            </span>
+                        </a>
+                        <span class="productPrice">
+                            518.70
+                        </span>
+                    </div>
+                    <div class="productItem">
+                        <a href="#nowhere"><img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/9521.jpg"></a>
+                        <a href="#nowhere" class="productItemDescLink">
+                            <span class="productItemDesc">[热销]
+                            帕莎Prsr太阳镜女偏光镜潮范冰冰同款女
+                            </span>
+                        </a>
+                        <span class="productPrice">
+                            624.00
+                        </span>
+                    </div>
+                    <div class="productItem">
+                        <a href="#nowhere"><img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/9510.jpg"></a>
+                        <a href="#nowhere" class="productItemDescLink">
+                            <span class="productItemDesc">[热销]
+                            变色眼镜男女款半框太阳镜大框潮流防辐射防
+                            </span>
+                        </a>
+                        <span class="productPrice">
+                            170.00
+                        </span>
+                    </div>
+                    <div class="productItem">
+                        <a href="#nowhere"><img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/9499.jpg"></a>
+                        <a href="#nowhere" class="productItemDescLink">
+                            <span class="productItemDesc">[热销]
+                            新款男士偏光太阳镜日夜两用墨镜潮运动开车
+                            </span>
+                        </a>
+                        <span class="productPrice">
+                            551.00
+                        </span>
+                    </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="eachHomepageCategoryProducts">
+            <div class="left-mark"></div>
+            <span class="categoryTitle">安全座椅</span>
+            <br>
+                    <div class="productItem">
+                        <a href="#nowhere"><img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/10192.jpg"></a>
+                        <a href="#nowhere" class="productItemDescLink">
+                            <span class="productItemDesc">[热销]
+                            新生儿婴儿提篮式安全座椅汽车用车载儿童安
+                            </span>
+                        </a>
+                        <span class="productPrice">
+                            882.00
+                        </span>
+                    </div>
+                    <div class="productItem">
+                        <a href="#nowhere"><img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/10181.jpg"></a>
+                        <a href="#nowhere" class="productItemDescLink">
+                            <span class="productItemDesc">[热销]
+                            REEBABY汽车儿童安全座椅ISOFI
+                            </span>
+                        </a>
+                        <span class="productPrice">
+                            1,344.00
+                        </span>
+                    </div>
+                    <div class="productItem">
+                        <a href="#nowhere"><img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/10170.jpg"></a>
+                        <a href="#nowhere" class="productItemDescLink">
+                            <span class="productItemDesc">[热销]
+                            REEBABY儿童安全座椅9个月-12岁
+                            </span>
+                        </a>
+                        <span class="productPrice">
+                            1,216.00
+                        </span>
+                    </div>
+                    <div class="productItem">
+                        <a href="#nowhere"><img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/10159.jpg"></a>
+                        <a href="#nowhere" class="productItemDescLink">
+                            <span class="productItemDesc">[热销]
+                            好孩子汽车儿童安全座椅goodbaby9
+                            </span>
+                        </a>
+                        <span class="productPrice">
+                            1,199.40
+                        </span>
+                    </div>
+                    <div class="productItem">
+                        <a href="#nowhere"><img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/10148.jpg"></a>
+                        <a href="#nowhere" class="productItemDescLink">
+                            <span class="productItemDesc">[热销]
+                            惠尔顿儿童安全座椅isofix硬接口汽车
+                            </span>
+                        </a>
+                        <span class="productPrice">
+                            1,993.60
+                        </span>
+                    </div>
+            <div style="clear:both"></div>
+        </div>
+    <img src="http://how2j.cn/tmall/img/site/end.png" class="endpng" id="endpng">
+</div>
+
+
+
+
+
+
 
 <div style="display: block;" class="footer" id="footer">
 	<div class="footer_ensure" id="footer_ensure">
